@@ -53,6 +53,10 @@ class ActionType(str, Enum):
     """Interact with the MCP server.
     """
 
+    NOTION = 'notion'
+    """Interact with Notion for bug tracking.
+    """
+
     DELEGATE = 'delegate'
     """Delegates a task to another agent.
     """

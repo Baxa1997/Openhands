@@ -66,4 +66,7 @@ export type Settings = {
   git_user_name?: string;
   git_user_email?: string;
   v1_enabled?: boolean;
+  // Notion integration
+  notion_api_key_set?: boolean;
+  notion_database_id?: string | null;
 };

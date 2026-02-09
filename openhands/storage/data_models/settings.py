@@ -47,6 +47,9 @@ class Settings(BaseModel):
     search_api_key: SecretStr | None = None
     sandbox_api_key: SecretStr | None = None
     max_budget_per_task: float | None = None
+    # Notion integration settings
+    notion_api_key: SecretStr | None = None
+    notion_database_id: str | None = None
     # Maximum number of events in the conversation view before condensation runs
     condenser_max_size: int | None = None
     email: str | None = None
@@ -59,7 +62,7 @@ class Settings(BaseModel):
         validate_assignment=True,
     )
 
-    @field_serializer('llm_api_key', 'search_api_key')
+    @field_serializer('llm_api_key', 'search_api_key', 'notion_api_key')
     def api_key_serializer(self, api_key: SecretStr | None, info: SerializationInfo):
         """Custom serializer for API keys.
 

@@ -132,7 +132,14 @@ async def store_provider_tokens(
             existing_providers = [provider for provider in user_secrets.provider_tokens]
 
             # Merge incoming settings store with the existing one
+            providers_to_remove = []
             for provider, token_value in list(provider_info.provider_tokens.items()):
+                # Check if this is an intentional disconnect (both token and host are empty)
+                if not token_value.token and not token_value.host:
+                    providers_to_remove.append(provider)
+                    continue
+                
+                # Preserve existing token if only token is empty (host might have value)
                 if provider in existing_providers and not token_value.token:
                     existing_token = user_secrets.provider_tokens.get(provider)
                     if existing_token and existing_token.token:
@@ -141,6 +148,10 @@ async def store_provider_tokens(
                 provider_info.provider_tokens[provider] = provider_info.provider_tokens[
                     provider
                 ].model_copy(update={'host': token_value.host})
+            
+            # Remove providers marked for disconnection
+            for provider in providers_to_remove:
+                provider_info.provider_tokens.pop(provider, None)
 
         updated_secrets = user_secrets.model_copy(
             update={'provider_tokens': provider_info.provider_tokens}

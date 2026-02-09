@@ -60,6 +60,9 @@ class ObservationType(str, Enum):
     MCP = 'mcp'
     """Result of a MCP Server operation"""
 
+    NOTION = 'notion'
+    """Result of a Notion operation"""
+
     DOWNLOAD = 'download'
     """Result of downloading/opening a file via the browser"""
 

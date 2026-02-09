@@ -134,8 +134,8 @@ export function ConversationTabs() {
   return (
     <div
       className={cn(
-        "relative w-full",
-        "flex flex-row justify-start lg:justify-end items-center gap-4.5",
+        "relative",
+        "flex flex-row justify-start lg:justify-end items-center gap-1 p-1 bg-zinc-900/50 rounded-lg border border-zinc-800/50",
       )}
     >
       {visibleTabs.map(
@@ -168,17 +168,17 @@ export function ConversationTabs() {
           </ChatActionTooltip>
         ),
       )}
-      <div className="relative">
+      <div className="relative ml-1">
         <button
           type="button"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className={cn(
-            "p-1 pl-0 rounded-md cursor-pointer",
-            "text-[#9299AA] bg-[#0D0F11]",
+            "p-1.5 rounded-md cursor-pointer transition-colors",
+            "text-zinc-500 hover:text-zinc-300 hover:bg-zinc-800/50",
           )}
           aria-label={t(I18nKey.COMMON$MORE_OPTIONS)}
         >
-          <ThreeDotsVerticalIcon className={cn("w-5 h-5 text-inherit")} />
+          <ThreeDotsVerticalIcon className={cn("w-4 h-4 text-inherit")} />
         </button>
         <ConversationTabsContextMenu
           isOpen={isMenuOpen}

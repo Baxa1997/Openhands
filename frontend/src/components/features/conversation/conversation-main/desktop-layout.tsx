@@ -18,21 +18,24 @@ export function DesktopLayout({ isRightPanelShown }: DesktopLayoutProps) {
     });
 
   return (
-    <div className="h-full flex flex-col overflow-hidden">
+    <div className="h-full flex flex-col overflow-hidden bg-[#09090b]">
       <div
         ref={containerRef}
-        className="flex flex-1 transition-all duration-300 ease-in-out overflow-hidden"
+        className="flex flex-1 overflow-hidden gap-0"
         style={{
-          // Only apply smooth transitions when not dragging
           transitionProperty: isDragging ? "none" : "all",
+          transitionDuration: "300ms",
+          transitionTimingFunction: "ease-in-out",
         }}
       >
         {/* Left Panel (Chat) */}
         <div
-          className="flex flex-col bg-base overflow-hidden transition-all duration-300 ease-in-out"
+          className="flex flex-col overflow-hidden bg-[#0d0d10] border-r border-zinc-800/30"
           style={{
             width: isRightPanelShown ? `${leftWidth}%` : "100%",
             transitionProperty: isDragging ? "none" : "all",
+            transitionDuration: "300ms",
+            transitionTimingFunction: "ease-in-out",
           }}
         >
           <ChatInterfaceWrapper isRightPanelShown={isRightPanelShown} />
@@ -44,7 +47,7 @@ export function DesktopLayout({ isRightPanelShown }: DesktopLayoutProps) {
         {/* Right Panel */}
         <div
           className={cn(
-            "transition-all duration-300 ease-in-out overflow-hidden",
+            "overflow-hidden bg-[#111113]",
             isRightPanelShown
               ? "translate-x-0 opacity-100"
               : "w-0 translate-x-full opacity-0",
@@ -52,9 +55,11 @@ export function DesktopLayout({ isRightPanelShown }: DesktopLayoutProps) {
           style={{
             width: isRightPanelShown ? `${rightWidth}%` : "0%",
             transitionProperty: isDragging ? "opacity, transform" : "all",
+            transitionDuration: "300ms",
+            transitionTimingFunction: "ease-in-out",
           }}
         >
-          <div className="flex flex-col flex-1 gap-3 min-w-max h-full">
+          <div className="flex flex-col flex-1 min-w-max h-full">
             <ConversationTabContent />
           </div>
         </div>

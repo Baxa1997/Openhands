@@ -10,11 +10,12 @@ export default [
   layout("routes/root-layout.tsx", [
     index("routes/home.tsx"),
     route("accept-tos", "routes/accept-tos.tsx"),
+    route("integrations", "routes/integrations.tsx"),
     route("settings", "routes/settings.tsx", [
       index("routes/llm-settings.tsx"),
       route("mcp", "routes/mcp-settings.tsx"),
       route("user", "routes/user-settings.tsx"),
-      route("integrations", "routes/git-settings.tsx"),
+      route("integrations", "routes/settings/integrations.tsx"),
       route("app", "routes/app-settings.tsx"),
       route("billing", "routes/billing.tsx"),
       route("secrets", "routes/secrets-settings.tsx"),

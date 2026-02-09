@@ -53,12 +53,18 @@ export function ConversationNameWithStatus() {
   };
 
   return (
-    <div className="flex items-center">
+    <div className="flex items-center gap-2 px-2 py-1.5 bg-zinc-900/50 rounded-lg border border-zinc-800/50">
       <div className="group relative">
-        <DebugStackframeDot
-          className="ml-[3.5px] w-6 h-6 cursor-pointer"
-          color={statusColor}
-        />
+        <div className="flex items-center gap-2 cursor-pointer hover:bg-zinc-800/50 rounded-md px-2 py-1 transition-colors">
+          <DebugStackframeDot className="w-5 h-5" color={statusColor} />
+          <span className="text-xs text-zinc-500 hidden sm:block">
+            {(() => {
+              if (conversation?.status === "RUNNING") return "Running";
+              if (conversation?.status === "STOPPED") return "Stopped";
+              return "Loading";
+            })()}
+          </span>
+        </div>
         <ServerStatusContextMenu
           onClose={() => {}}
           onStopServer={
@@ -73,6 +79,7 @@ export function ConversationNameWithStatus() {
           isPausing={false}
         />
       </div>
+      <div className="w-px h-4 bg-zinc-700" />
       <ConversationName />
     </div>
   );

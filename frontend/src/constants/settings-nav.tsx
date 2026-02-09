@@ -3,7 +3,6 @@ import KeyIcon from "#/icons/key.svg?react";
 import ServerProcessIcon from "#/icons/server-process.svg?react";
 import SettingsGearIcon from "#/icons/settings-gear.svg?react";
 import CircuitIcon from "#/icons/u-circuit.svg?react";
-import PuzzlePieceIcon from "#/icons/u-puzzle-piece.svg?react";
 import UserIcon from "#/icons/user.svg?react";
 
 export interface SettingsNavItem {
@@ -17,11 +16,6 @@ export const SAAS_NAV_ITEMS: SettingsNavItem[] = [
     icon: <UserIcon width={22} height={22} />,
     to: "/settings/user",
     text: "SETTINGS$NAV_USER",
-  },
-  {
-    icon: <PuzzlePieceIcon width={22} height={22} />,
-    to: "/settings/integrations",
-    text: "SETTINGS$NAV_INTEGRATIONS",
   },
   {
     icon: <SettingsGearIcon width={22} height={22} />,
@@ -65,11 +59,6 @@ export const OSS_NAV_ITEMS: SettingsNavItem[] = [
     icon: <ServerProcessIcon width={22} height={22} />,
     to: "/settings/mcp",
     text: "SETTINGS$NAV_MCP",
-  },
-  {
-    icon: <PuzzlePieceIcon width={22} height={22} />,
-    to: "/settings/integrations",
-    text: "SETTINGS$NAV_INTEGRATIONS",
   },
   {
     icon: <SettingsGearIcon width={22} height={22} />,

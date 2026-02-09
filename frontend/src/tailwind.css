@@ -9,19 +9,19 @@
   preferredstrategy: "pseudoelements";
 }
 
-/* OLD TAILWIND STYLES */
+/* UCODE AI THEME COLORS */
 @theme {
-  --color-primary: #c9b974;
-  --color-logo: #cfb755;
-  --color-base: #0d0f11;
-  --color-base-secondary: #24272e;
-  --color-danger: #e76a5e;
-  --color-success: #a5e75e;
-  --color-basic: #9099ac;
-  --color-tertiary: #454545;
-  --color-tertiary-light: #b7bdc2;
-  --color-content: #ecedee;
-  --color-content-2: #f9fbfe;
+  --color-primary: #2563eb;
+  --color-logo: #2563eb;
+  --color-base: #09090b;
+  --color-base-secondary: #18181b;
+  --color-danger: #dc2626;
+  --color-success: #16a34a;
+  --color-basic: #a1a1aa;
+  --color-tertiary: #27272a;
+  --color-tertiary-light: #a1a1aa;
+  --color-content: #e4e4e7;
+  --color-content-2: #fafafa;
 }
 
 .button-base {
@@ -212,34 +212,34 @@
 }
 
 .loader {
-  background: #c9b974;
+  background: #2563eb;
   animation: l5 1s infinite linear alternate;
 }
 
 @keyframes l5 {
   0% {
     box-shadow:
-      20px 0 #c9b974,
-      -20px 0 rgba(201, 185, 116, 0.1);
-    background: #c9b974;
+      20px 0 #2563eb,
+      -20px 0 rgba(37, 99, 235, 0.1);
+    background: #2563eb;
   }
   33% {
     box-shadow:
-      20px 0 #c9b974,
-      -20px 0 rgba(201, 185, 116, 0.1);
-    background: rgba(201, 185, 116, 0.1);
+      20px 0 #2563eb,
+      -20px 0 rgba(37, 99, 235, 0.1);
+    background: rgba(37, 99, 235, 0.1);
   }
   66% {
     box-shadow:
-      20px 0 rgba(201, 185, 116, 0.1),
-      -20px 0 #c9b974;
-    background: rgba(201, 185, 116, 0.1);
+      20px 0 rgba(37, 99, 235, 0.1),
+      -20px 0 #2563eb;
+    background: rgba(37, 99, 235, 0.1);
   }
   100% {
     box-shadow:
-      20px 0 rgba(201, 185, 116, 0.1),
-      -20px 0 #c9b974;
-    background: #c9b974;
+      20px 0 rgba(37, 99, 235, 0.1),
+      -20px 0 #2563eb;
+    background: #2563eb;
   }
 }
 

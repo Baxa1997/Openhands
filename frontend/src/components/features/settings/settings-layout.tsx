@@ -18,22 +18,22 @@ export function SettingsLayout({
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   return (
-    <div className="flex flex-col h-full px-[14px] pt-8">
+    <div className="flex flex-col h-full px-[14px] pt-8 bg-[#09090b]">
       {/* Mobile header */}
       <MobileHeader
         isMobileMenuOpen={isMobileMenuOpen}
         onToggleMenu={toggleMobileMenu}
       />
       {/* Desktop layout with navigation and main content */}
-      <div className="flex flex-1 overflow-hidden gap-10">
-        {/* Navigation */}
+      <div className="flex flex-1 overflow-hidden gap-8">
+        {/* Navigation - Left Column */}
         <SettingsNavigation
           isMobileMenuOpen={isMobileMenuOpen}
           onCloseMobileMenu={closeMobileMenu}
           navigationItems={navigationItems}
         />
-        {/* Main content */}
-        <main className="flex-1 overflow-auto custom-scrollbar-always">
+        {/* Main content - Right Column */}
+        <main className="flex-1 overflow-auto custom-scrollbar-always bg-[#18181b] rounded-xl border border-zinc-800 p-6">
           {children}
         </main>
       </div>

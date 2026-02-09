@@ -55,10 +55,14 @@ function SettingsScreen() {
   }, [navItems, location.pathname]);
 
   return (
-    <main data-testid="settings-screen" className="h-full">
+    <main data-testid="settings-screen" className="h-full bg-[#09090b]">
       <SettingsLayout navigationItems={navItems}>
         <div className="flex flex-col gap-6 h-full">
-          <Typography.H2>{t(currentSectionTitle)}</Typography.H2>
+          <div className="border-b border-zinc-800 pb-4">
+            <Typography.H2 className="text-2xl font-bold text-zinc-100">
+              {t(currentSectionTitle)}
+            </Typography.H2>
+          </div>
           <div className="flex-1 overflow-auto custom-scrollbar-always">
             <Outlet />
           </div>

@@ -152,14 +152,18 @@ function AppContent() {
       <EventHandler>
         <div
           data-testid="app-route"
-          className="p-3 md:p-0 flex flex-col h-full gap-3"
+          className="flex flex-col h-full bg-[#09090b]"
         >
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4.5 pt-2 lg:pt-0">
+          {/* Header Bar */}
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 px-4 py-3 border-b border-zinc-800/50 bg-[#0d0d10]">
             <ConversationNameWithStatus />
             <ConversationTabs />
           </div>
 
-          <ConversationMain />
+          {/* Main Content */}
+          <div className="flex-1 overflow-hidden">
+            <ConversationMain />
+          </div>
         </div>
       </EventHandler>
     </ConversationSubscriptionsProvider>

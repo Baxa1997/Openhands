@@ -76,11 +76,14 @@ async def load_settings(
             and bool(settings.llm_api_key),
             search_api_key_set=settings.search_api_key is not None
             and bool(settings.search_api_key),
+            notion_api_key_set=settings.notion_api_key is not None
+            and bool(settings.notion_api_key),
             provider_tokens_set=provider_tokens_set,
         )
         settings_with_token_data.llm_api_key = None
         settings_with_token_data.search_api_key = None
         settings_with_token_data.sandbox_api_key = None
+        settings_with_token_data.notion_api_key = None
         return settings_with_token_data
     except Exception as e:
         logger.warning(f'Invalid token: {e}')
@@ -130,6 +133,12 @@ async def store_llm_settings(
         # Keep search API key if missing or empty
         if not settings.search_api_key:
             settings.search_api_key = existing_settings.search_api_key
+        # Keep Notion API key if missing or empty
+        if settings.notion_api_key is None:
+            settings.notion_api_key = existing_settings.notion_api_key
+        # Keep Notion database ID if missing
+        if settings.notion_database_id is None:
+            settings.notion_database_id = existing_settings.notion_database_id
 
     return settings
 
@@ -213,6 +222,7 @@ def convert_to_settings(settings_with_token_data: Settings) -> Settings:
     # Convert the API keys to `SecretStr` instances
     filtered_settings_data['llm_api_key'] = settings_with_token_data.llm_api_key
     filtered_settings_data['search_api_key'] = settings_with_token_data.search_api_key
+    filtered_settings_data['notion_api_key'] = settings_with_token_data.notion_api_key
 
     # Create a new Settings instance
     settings = Settings(**filtered_settings_data)

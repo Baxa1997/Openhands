@@ -493,7 +493,7 @@ function LlmSettingsScreen() {
         action={formAction}
         className="flex flex-col h-full justify-between"
       >
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6 pb-6">
           <SettingsSwitch
             testId="advanced-settings-switch"
             defaultIsToggled={view === "advanced"}
@@ -746,7 +746,7 @@ function LlmSettingsScreen() {
           )}
         </div>
 
-        <div className="flex gap-6 p-6 justify-end">
+        <div className="flex gap-6 pt-6 border-t border-zinc-800 justify-end sticky bottom-0 bg-[#18181b]">
           <BrandButton
             testId="submit-button"
             type="submit"

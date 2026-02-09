@@ -64,46 +64,48 @@ export function MCPServerListItem({
   return (
     <tr
       data-testid="mcp-server-item"
-      className="grid grid-cols-[minmax(0,0.25fr)_120px_minmax(0,1fr)_120px] gap-4 items-start border-t border-tertiary"
+      className="grid grid-cols-[minmax(0,0.25fr)_120px_minmax(0,1fr)_120px] gap-4 items-start border-t border-zinc-800 hover:bg-zinc-900/30 transition-colors"
     >
       <td
-        className="p-3 text-sm text-content-2 truncate min-w-0"
+        className="p-3 text-sm text-zinc-100 truncate min-w-0 font-medium"
         title={serverName}
       >
         {serverName}
       </td>
 
-      <td className="p-3 text-sm text-content-2 whitespace-nowrap">
-        {getServerTypeLabel(server.type)}
+      <td className="p-3 text-sm whitespace-nowrap">
+        <span className="bg-blue-600/20 text-blue-400 px-2 py-1 rounded-md text-xs font-medium">
+          {getServerTypeLabel(server.type)}
+        </span>
       </td>
 
       <td
-        className="p-3 text-sm text-content-2 opacity-80 italic min-w-0 truncate"
+        className="p-3 text-sm text-zinc-400 min-w-0 truncate"
         title={serverDescription}
       >
-        <span className="inline-block max-w-full align-bottom">
+        <span className="inline-block max-w-full align-bottom font-mono text-xs">
           {serverDescription}
         </span>
       </td>
 
-      <td className="p-3 flex items-start justify-end gap-4 whitespace-nowrap">
+      <td className="p-3 flex items-start justify-end gap-3 whitespace-nowrap">
         <button
           data-testid="edit-mcp-server-button"
           type="button"
           onClick={onEdit}
           aria-label={`Edit ${serverName}`}
-          className="cursor-pointer hover:text-content-1 transition-colors"
+          className="cursor-pointer text-zinc-400 hover:text-blue-500 transition-colors p-1.5 hover:bg-blue-600/10 rounded-lg"
         >
-          <FaPencil size={16} />
+          <FaPencil size={14} />
         </button>
         <button
           data-testid="delete-mcp-server-button"
           type="button"
           onClick={onDelete}
           aria-label={`Delete ${serverName}`}
-          className="cursor-pointer hover:text-content-1 transition-colors"
+          className="cursor-pointer text-zinc-400 hover:text-red-500 transition-colors p-1.5 hover:bg-red-600/10 rounded-lg"
         >
-          <FaTrash size={16} />
+          <FaTrash size={14} />
         </button>
       </td>
     </tr>

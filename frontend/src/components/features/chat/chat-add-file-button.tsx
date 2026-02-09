@@ -14,16 +14,18 @@ export function ChatAddFileButton({
     <button
       type="button"
       className={cn(
-        "h-[25px] relative shrink-0 w-[13px] cursor-pointer transition-all duration-200 hover:scale-110 active:scale-95",
-        disabled && "cursor-not-allowed",
+        "flex items-center justify-center w-9 h-9 rounded-lg transition-all duration-200",
+        disabled
+          ? "cursor-not-allowed bg-zinc-800/50 text-zinc-600"
+          : "cursor-pointer bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-zinc-200",
       )}
       data-name="Shape"
       data-testid="paperclip-icon"
       onClick={handleFileIconClick}
     >
       <PaperclipIcon
-        className="block max-w-none w-[13px] h-[25px]"
-        color={disabled ? "#959CB2" : "white"}
+        className="block w-5 h-5"
+        color={disabled ? "#52525b" : "currentColor"}
       />
     </button>
   );

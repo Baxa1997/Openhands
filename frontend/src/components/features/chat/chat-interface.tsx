@@ -311,7 +311,7 @@ export function ChatInterface() {
 
   return (
     <ScrollProvider value={scrollProviderValue}>
-      <div className="h-full flex flex-col justify-between pr-0 md:pr-4 relative">
+      <div className="h-full flex flex-col justify-between px-2 md:px-4 relative bg-[#0d0d10]">
         {!hasSubstantiveAgentActions &&
           !optimisticUserMessage &&
           !userEventsExist &&

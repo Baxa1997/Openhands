@@ -29,8 +29,8 @@ export function MCPServerList({
 
   if (servers.length === 0) {
     return (
-      <div className="border border-tertiary rounded-md p-8 text-center">
-        <p className="text-content-2 text-sm">
+      <div className="border border-zinc-700 rounded-xl p-8 text-center bg-[#1A1A1A]">
+        <p className="text-zinc-400 text-sm">
           {t(I18nKey.SETTINGS$MCP_NO_SERVERS)}
         </p>
       </div>
@@ -38,20 +38,20 @@ export function MCPServerList({
   }
 
   return (
-    <div className="border border-tertiary rounded-md overflow-hidden">
+    <div className="border border-zinc-700 rounded-xl overflow-hidden bg-[#1A1A1A]">
       <table className="w-full">
-        <thead className="bg-base-tertiary">
+        <thead className="bg-zinc-900/50 border-b border-zinc-800">
           <tr className="grid grid-cols-[minmax(0,0.25fr)_120px_minmax(0,1fr)_120px] gap-4 items-start">
-            <th className="text-left p-3 text-sm font-medium">
+            <th className="text-left p-3 text-sm font-semibold text-zinc-200">
               {t(I18nKey.SETTINGS$NAME)}
             </th>
-            <th className="text-left p-3 text-sm font-medium">
+            <th className="text-left p-3 text-sm font-semibold text-zinc-200">
               {t(I18nKey.SETTINGS$MCP_SERVER_TYPE)}
             </th>
-            <th className="text-left p-3 text-sm font-medium">
+            <th className="text-left p-3 text-sm font-semibold text-zinc-200">
               {t(I18nKey.SETTINGS$MCP_SERVER_DETAILS)}
             </th>
-            <th className="text-right p-3 text-sm font-medium">
+            <th className="text-right p-3 text-sm font-semibold text-zinc-200">
               {t(I18nKey.SETTINGS$ACTIONS)}
             </th>
           </tr>

@@ -9,9 +9,19 @@ interface UserActionsProps {
   onLogout: () => void;
   user?: { avatar_url: string };
   isLoading?: boolean;
+  onOpenConversations?: () => void;
+  conversationPanelIsOpen?: boolean;
+  emailVerified?: boolean;
 }
 
-export function UserActions({ onLogout, user, isLoading }: UserActionsProps) {
+export function UserActions({
+  onLogout,
+  user,
+  isLoading,
+  onOpenConversations,
+  conversationPanelIsOpen,
+  emailVerified,
+}: UserActionsProps) {
   const [accountContextMenuIsVisible, setAccountContextMenuIsVisible] =
     React.useState(false);
 
@@ -66,6 +76,9 @@ export function UserActions({ onLogout, user, isLoading }: UserActionsProps) {
           <AccountSettingsContextMenu
             onLogout={handleLogout}
             onClose={closeAccountMenu}
+            onOpenConversations={onOpenConversations}
+            conversationPanelIsOpen={conversationPanelIsOpen}
+            emailVerified={emailVerified}
           />
         </div>
       )}

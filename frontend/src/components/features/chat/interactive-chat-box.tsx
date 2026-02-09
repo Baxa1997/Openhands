@@ -10,6 +10,9 @@ import { useAgentState } from "#/hooks/use-agent-state";
 import { processFiles, processImages } from "#/utils/file-processing";
 import { useSubConversationTaskPolling } from "#/hooks/query/use-sub-conversation-task-polling";
 import { isTaskPolling } from "#/utils/utils";
+import { NotionBugSelector } from "./notion-bug-selector";
+import { NotionTask } from "#/api/notion-service/notion-service.api";
+import { useState } from "react";
 
 interface InteractiveChatBoxProps {
   onSubmit: (message: string, images: File[], files: File[]) => void;
@@ -30,6 +33,9 @@ export function InteractiveChatBox({ onSubmit }: InteractiveChatBoxProps) {
   } = useConversationStore();
   const { curAgentState } = useAgentState();
   const { data: conversation } = useActiveConversation();
+
+  // State for selected Notion task
+  const [selectedNotionTask, setSelectedNotionTask] = useState<NotionTask | null>(null);
 
   // Poll sub-conversation task to check if it's loading
   const { taskStatus: subConversationTaskStatus } =
@@ -136,10 +142,19 @@ export function InteractiveChatBox({ onSubmit }: InteractiveChatBoxProps) {
   const handleSubmit = (message: string) => {
     onSubmit(message, images, files);
     clearAllFiles();
+    // Clear selected Notion task after submission
+    setSelectedNotionTask(null);
   };
 
   const handleSuggestionsClick = (suggestion: string) => {
     handleSubmit(suggestion);
+  };
+
+  // Handle Notion task selection - auto-submits the generated message
+  const handleNotionTaskSelect = (task: NotionTask, message: string) => {
+    setSelectedNotionTask(task);
+    // Auto-submit the message to start the agent
+    handleSubmit(message);
   };
 
   const isDisabled =
@@ -148,15 +163,21 @@ export function InteractiveChatBox({ onSubmit }: InteractiveChatBoxProps) {
     isTaskPolling(subConversationTaskStatus);
 
   return (
-    <div data-testid="interactive-chat-box">
+    <div data-testid="interactive-chat-box" className="px-2 pb-4">
       <CustomChatInput
         disabled={isDisabled}
         onSubmit={handleSubmit}
         onFilesPaste={handleUpload}
         conversationStatus={conversation?.status || null}
       />
-      <div className="mt-4">
-        <GitControlBar onSuggestionsClick={handleSuggestionsClick} />
+      <div className="mt-3 flex items-center gap-3">
+        <NotionBugSelector
+          onSelectTask={handleNotionTaskSelect}
+          className="flex-shrink-0"
+        />
+        <div className="flex-1">
+          <GitControlBar onSuggestionsClick={handleSuggestionsClick} />
+        </div>
       </div>
     </div>
   );

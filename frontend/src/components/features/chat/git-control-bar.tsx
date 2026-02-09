@@ -37,8 +37,8 @@ export function GitControlBar({ onSuggestionsClick }: GitControlBarProps) {
   const isConversationReady = !!conversation && webSocketStatus === "CONNECTED";
 
   return (
-    <div className="flex flex-row items-center">
-      <div className="flex flex-row gap-2.5 items-center overflow-x-auto flex-wrap md:flex-nowrap relative scrollbar-hide">
+    <div className="flex flex-row items-center px-1">
+      <div className="flex flex-row gap-2 items-center overflow-x-auto flex-wrap md:flex-nowrap relative scrollbar-hide">
         <GitControlBarTooltipWrapper
           tooltipMessage={t(I18nKey.COMMON$GIT_TOOLS_DISABLED_CONTENT)}
           testId="git-control-bar-repo-button-tooltip"

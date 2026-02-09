@@ -21,8 +21,8 @@ export function ConnectToProviderMessage() {
         <p>{t("HOME$CONNECT_PROVIDER_MESSAGE")}</p>
       </div>
       <Link
-        data-testid="navigate-to-settings-button"
-        to="/settings/integrations"
+        data-testid="navigate-to-integrations-button"
+        to="/integrations"
         className="self-start w-full"
       >
         <BrandButton
@@ -31,7 +31,7 @@ export function ConnectToProviderMessage() {
           isDisabled={isLoading}
           className="w-full font-semibold"
         >
-          {!isLoading && t("SETTINGS$TITLE")}
+          {!isLoading && t(I18nKey.SETTINGS$NAV_INTEGRATIONS)}
           {isLoading && t("HOME$LOADING")}
         </BrandButton>
       </Link>

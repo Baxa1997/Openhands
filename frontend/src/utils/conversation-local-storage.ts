@@ -21,7 +21,7 @@ export interface ConversationState {
 
 const DEFAULT_CONVERSATION_STATE: ConversationState = {
   selectedTab: "editor",
-  rightPanelShown: true,
+  rightPanelShown: false,
   unpinnedTabs: [],
   conversationMode: "code",
   subConversationTaskId: null,

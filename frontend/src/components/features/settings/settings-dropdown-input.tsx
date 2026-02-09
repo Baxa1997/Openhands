@@ -55,7 +55,7 @@ export function SettingsDropdownInput({
     <label className={cn("flex flex-col gap-2.5", wrapperClassName)}>
       {label && (
         <div className="flex items-center gap-1">
-          <span className="text-sm">{label}</span>
+          <span className="text-sm font-medium text-zinc-200">{label}</span>
           {showOptionalTag && <OptionalTag />}
         </div>
       )}
@@ -76,15 +76,18 @@ export function SettingsDropdownInput({
         isRequired={required}
         className="w-full"
         classNames={{
-          popoverContent: "bg-tertiary rounded-xl border border-[#717888]",
+          popoverContent: "bg-zinc-900 rounded-lg border border-zinc-700",
         }}
         inputProps={{
           classNames: {
             inputWrapper: cn(
-              "bg-tertiary border border-[#717888] h-10 w-full rounded-sm p-2 placeholder:italic",
+              "bg-zinc-900 border border-zinc-700 h-10 w-full rounded-lg px-3 py-2 hover:border-zinc-600 focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-600/50 transition-all duration-200",
               inputWrapperClassName,
             ),
-            input: inputClassName,
+            input: cn(
+              "text-zinc-100 placeholder:text-zinc-500",
+              inputClassName,
+            ),
           },
         }}
         defaultFilter={defaultFilter}

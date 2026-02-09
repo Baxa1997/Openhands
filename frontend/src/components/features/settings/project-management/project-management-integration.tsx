@@ -9,11 +9,13 @@ export function ProjectManagementIntegration() {
   const { data: config } = useConfig();
 
   return (
-    <div className="flex flex-col gap-4 w-1/4">
-      <h3 className="text-xl font-medium text-white">
-        {t(I18nKey.PROJECT_MANAGEMENT$TITLE)}
-      </h3>
-      <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-6">
+      <div className="flex items-center gap-2">
+        <h3 className="text-xl font-semibold text-white">
+          {t(I18nKey.PROJECT_MANAGEMENT$TITLE)}
+        </h3>
+      </div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {config?.FEATURE_FLAGS?.ENABLE_JIRA && (
           <IntegrationRow
             platform="jira"
